@@ -1,9 +1,10 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // String perfilCliente = "Basico"; 
-        // String perfilCliente = "Gratuito"; 
-        String perfilCliente = "Ultimate";
-         
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Qual o perfil do cliente? (Gratuito/Basico/Ultimate): ");
+        String perfilCliente = scanner.nextLine().trim();
         IServicoBancoDeDados bancoSelecionado = null;
 
         switch (perfilCliente) {
@@ -24,5 +25,7 @@ public class Main {
         System.out.println("--- Perfil: " + perfilCliente + " ---");
         bancoSelecionado.iniciarConexao();
         bancoSelecionado.processarTransacao();
+        
+        scanner.close();
     }
 }
